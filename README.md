@@ -172,8 +172,32 @@ Tests cover:
 
 See `frontend/cypress/README.md` for more details.
 
+### Docker Deployment
+
+The application is fully dockerized and can be run using Docker Compose.
+
+**Quick Start:**
+```bash
+# Production mode
+docker-compose up -d --build
+
+# Development mode (with hot-reload)
+docker-compose -f docker-compose.dev.yml up -d --build
+
+# Seed the database
+docker-compose exec backend npm run seed
+```
+
+**Access:**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+- MongoDB: localhost:27017
+
+See [DOCKER.md](./DOCKER.md) for detailed Docker setup instructions.
+
 ### Production Notes
 - Deploy the API separately (e.g., Render, Railway, Fly.io) and point `NEXT_PUBLIC_API_BASE_URL` to the public URL.
 - Set `MONGODB_URI` environment variable in your production backend environment.
 - Run `npm run build` (from root) or `cd frontend && npm run build` followed by `npm start` for the Next.js production server.
 - The database is now using MongoDB for persistent storage instead of in-memory data.
+- **Docker:** Use `docker-compose up -d` for production deployment with all services orchestrated.
