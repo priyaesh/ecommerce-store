@@ -1,0 +1,22 @@
+{
+  "name": "ecommerce-store-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "E-commerce store with Next.js frontend and Node.js backend",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build": "npm run build --prefix frontend",
+    "start:frontend": "npm run start --prefix frontend",
+    "start:backend": "npm run start --prefix backend",
+    "lint": "npm run lint --prefix frontend"
+  },
+  "keywords": ["ecommerce", "nextjs", "express", "tailwind"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
