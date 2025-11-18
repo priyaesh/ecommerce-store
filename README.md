@@ -123,6 +123,55 @@ The website includes Stripe payment processing in **Test Mode**. See [STRIPE_SET
 
 **Test Card:** Use `4242 4242 4242 4242` with any future expiry date and CVC.
 
+### Testing
+
+#### Backend Tests (Jest + Supertest)
+
+Run backend API tests:
+```bash
+cd backend
+npm test
+```
+
+Tests cover:
+- Product API endpoints
+- Authentication (register, login, logout)
+- Inventory management
+- Payment processing
+- Checkout flow
+
+See `backend/tests/README.md` for more details.
+
+#### Frontend Tests (Cypress)
+
+**Prerequisites:**
+- Backend server running on `http://localhost:5000`
+- Frontend server running on `http://localhost:3000`
+- MongoDB running
+
+**Run tests:**
+```bash
+cd frontend
+
+# Open Cypress Test Runner (interactive)
+npm run cypress:open
+# or
+npm run test:e2e:open
+
+# Run tests headlessly (CI mode)
+npm run cypress:run
+# or
+npm run test:e2e
+```
+
+Tests cover:
+- Storefront (product display, filtering, search)
+- Shopping cart functionality
+- User authentication
+- Checkout process
+
+See `frontend/cypress/README.md` for more details.
+
 ### Production Notes
 - Deploy the API separately (e.g., Render, Railway, Fly.io) and point `NEXT_PUBLIC_API_BASE_URL` to the public URL.
 - Set `MONGODB_URI` environment variable in your production backend environment.
